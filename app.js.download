@@ -1,0 +1,334 @@
+// Resume Application JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the resume application
+    initializeResume();
+});
+
+function initializeResume() {
+    // Add smooth scrolling for any internal links
+    addSmoothScrolling();
+    
+    // Add print functionality
+    addPrintFunctionality();
+    
+    // Add subtle hover effects for portfolio logos
+    addLogoInteractions();
+    
+    // Add copy to clipboard functionality for contact info
+    addContactInteractions();
+    
+    // Add accessibility enhancements
+    enhanceAccessibility();
+    
+    console.log('Resume application initialized successfully');
+}
+
+function addSmoothScrolling() {
+    // Add smooth scrolling behavior to any internal anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+function addPrintFunctionality() {
+    // Add keyboard shortcut for printing (Ctrl+P is default, but we can enhance it)
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+            // Let the default print behavior work
+            console.log('Print initiated');
+        }
+    });
+    
+    // Optimize for printing
+    window.addEventListener('beforeprint', function() {
+        document.body.classList.add('printing');
+        console.log('Preparing for print');
+    });
+    
+    window.addEventListener('afterprint', function() {
+        document.body.classList.remove('printing');
+        console.log('Print completed');
+    });
+}
+
+function addLogoInteractions() {
+    const logoLinks = document.querySelectorAll('.logo-link');
+    
+    logoLinks.forEach(logo => {
+        // Add subtle click feedback without preventing default behavior
+        logo.addEventListener('click', function(e) {
+            const platform = this.classList[1]; // Get the platform class name
+            console.log(`Navigating to ${platform} profile`);
+            
+            // Special handling for LinkedIn to ensure proper navigation
+            if (platform === 'linkedin') {
+                console.log('Opening LinkedIn profile');
+            }
+        });
+        
+        // Add keyboard navigation support
+        logo.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                // Trigger the click to open the link
+                window.open(this.href, '_blank');
+            }
+        });
+        
+        // Add hover effect enhancement
+        logo.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px) scale(1.05)';
+        });
+        
+        logo.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+}
+
+function addContactInteractions() {
+    // Add click-to-copy functionality for email and phone
+    const emailElement = document.querySelector('a[href^="mailto:"]');
+    const phoneElements = document.querySelectorAll('.contact-item');
+    
+    if (emailElement) {
+        // Add double-click to copy functionality for email
+        let clickTimeout;
+        emailElement.addEventListener('click', function(e) {
+            if (clickTimeout) {
+                clearTimeout(clickTimeout);
+                clickTimeout = null;
+                // Double click - copy to clipboard
+                e.preventDefault();
+                const email = this.textContent.trim();
+                copyToClipboard(email, 'Email address copied to clipboard!');
+            } else {
+                // Single click - allow normal email behavior
+                clickTimeout = setTimeout(() => {
+                    clickTimeout = null;
+                }, 300);
+            }
+        });
+    }
+    
+    // Add click-to-copy functionality for phone number
+    phoneElements.forEach(element => {
+        if (element.textContent.includes('+91')) {
+            element.style.cursor = 'pointer';
+            element.setAttribute('title', 'Click to copy phone number');
+            element.addEventListener('click', function() {
+                const phone = this.textContent.replace('Phone:', '').trim();
+                copyToClipboard(phone, 'Phone number copied to clipboard!');
+            });
+        }
+    });
+}
+
+function copyToClipboard(text, message) {
+    // Use the modern Clipboard API if available
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification(message);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+            fallbackCopyToClipboard(text, message);
+        });
+    } else {
+        fallbackCopyToClipboard(text, message);
+    }
+}
+
+function fallbackCopyToClipboard(text, message) {
+    // Fallback method for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showNotification(message);
+    } catch (err) {
+        console.error('Failed to copy text: ', err);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showNotification(message) {
+    // Create a simple notification
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--color-success);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Trigger the animation
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateY(0)';
+    }, 10);
+    
+    // Remove the notification after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Add scroll to top functionality for better navigation
+function addScrollToTop() {
+    let scrollToTopButton;
+    
+    function createScrollToTopButton() {
+        scrollToTopButton = document.createElement('button');
+        scrollToTopButton.innerHTML = '↑';
+        scrollToTopButton.setAttribute('aria-label', 'Scroll to top');
+        scrollToTopButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        `;
+        
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        document.body.appendChild(scrollToTopButton);
+    }
+    
+    function toggleScrollToTopButton() {
+        const scrolled = window.pageYOffset;
+        const threshold = 300;
+        
+        if (scrolled > threshold) {
+            if (!scrollToTopButton) {
+                createScrollToTopButton();
+            }
+            scrollToTopButton.style.opacity = '1';
+            scrollToTopButton.style.transform = 'translateY(0)';
+        } else if (scrollToTopButton) {
+            scrollToTopButton.style.opacity = '0';
+            scrollToTopButton.style.transform = 'translateY(10px)';
+        }
+    }
+    
+    window.addEventListener('scroll', toggleScrollToTopButton);
+}
+
+// Add accessibility improvements
+function enhanceAccessibility() {
+    // Add skip navigation link
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: 999999;
+    `;
+    
+    skipLink.addEventListener('focus', function() {
+        this.style.cssText = `
+            position: absolute;
+            left: 6px;
+            top: 7px;
+            z-index: 999999;
+            padding: 8px 16px;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+        `;
+    });
+    
+    skipLink.addEventListener('blur', function() {
+        this.style.cssText = `
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            z-index: 999999;
+        `;
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+    
+    // Add main content ID for skip link
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent) {
+        mainContent.id = 'main-content';
+        mainContent.setAttribute('tabindex', '-1');
+    }
+    
+    // Add proper ARIA labels to portfolio links
+    const logoLinks = document.querySelectorAll('.logo-link');
+    logoLinks.forEach(link => {
+        const platform = link.title || link.classList[1];
+        link.setAttribute('aria-label', `Visit ${platform} profile`);
+    });
+}
+
+// Initialize scroll to top and accessibility features
+addScrollToTop();
