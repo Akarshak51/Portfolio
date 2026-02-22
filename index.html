@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akarashak Mishra - AI & Full Stack Developer Portfolio</title>
+
+  <!-- SEO meta -->
+  <meta name="description" content="Akarashak Mishra - AI & Full Stack Developer Portfolio. Projects in FastAPI, React, Arduino, YOLO, and automation systems." />
+  <meta name="keywords" content="Akarashak Mishra, AI Developer, Full Stack Developer, FastAPI, React, Arduino, Portfolio" />
+  <meta name="author" content="Akarashak Mishra" />
+  <meta property="og:title" content="Akarashak Mishra Portfolio" />
+  <meta property="og:description" content="AI & Full Stack Developer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/preview.png" />
+  <meta property="og:url" content="https://akarashak-portfolio.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Akarashak Mishra Portfolio">
+  <meta name="twitter:description" content="AI & Full Stack Developer Portfolio">
+  <link rel="canonical" href="https://akarashak-portfolio.vercel.app" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Akarashak Mishra",
+    "url": "https://akarashak-portfolio.vercel.app",
+    "sameAs": [
+      "https://github.com/Akarashak51",
+      "https://www.linkedin.com/in/akarashak-mishra-5a0013250"
+    ],
+    "jobTitle": "AI & Full Stack Developer",
+    "alumniOf": "Institute of Engineering and Rural Technology"
+  }
+  </script>
+
+  <!-- Tailwind, Fonts, Icons, Particles, Typed -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <style>
+    :root {
+      --dark-navy: #0A192F;
+      --light-slate: #ccd6f6;
+      --slate: #6576a8;
+      --accent: #64ffda;
+      --accent-dark: rgba(100, 255, 218, 0.1);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(115deg, #0A192F 0%, #233554 100%);
+      color: var(--light-slate);
+      min-height: 100vh;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+    .font-mono { font-family: 'Space Mono', monospace; }
+    .glass-card {
+      background: rgba(16, 32, 60, 0.85);
+      backdrop-filter: blur(32px);
+      box-shadow: 0 8px 32px 0 rgba(2,12,27,0.15);
+      border: 1.5px solid rgba(100,255,218,0.22);
+      border-radius: 1rem;
+      transition: transform 0.45s cubic-bezier(.23,1,.32,1), box-shadow .35s;
+    }
+    .glass-card:hover {
+      transform: perspective(500px) scale(1.02) rotateY(2deg) rotateX(-2deg);
+      box-shadow: 0 28px 48px -15px rgba(100,255,218,0.20);
+    }
+    .project-card {
+      transition: box-shadow .3s cubic-bezier(.47,1.64,.41,.94), transform .3s cubic-bezier(.47,1.64,.41,.94);
+    }
+    .project-card:hover {
+      box-shadow: 0 14px 32px -12px #64ffda99;
+      transform: scale(1.04) perspective(300px) rotateZ(-2deg);
+    }
+    #tsparticles {
+      z-index: -1;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+    }
+    .tech-logo {
+      transition: transform .28s cubic-bezier(.47,.46,.3,.89);
+    }
+    .tech-logo:hover {
+      transform: scale(1.18) rotateY(8deg);
+    }
+    .header-icons svg {
+      width: 28px;
+      height: 28px;
+    }
+    .glow-button {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 15px rgba(100,255,218,0.35);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .glow-button:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 0 25px rgba(100,255,218,0.55);
+    }
+    @media (max-width: 768px) {
+      .header-icons { display: none !important; }
+    }
+  </style>
+</head>
+
+<body class="antialiased relative">
+  <!-- Background Particles -->
+  <div id="tsparticles"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      tsParticles.load("tsparticles", {
+        particles: {
+          number: { value: 30 },
+          color: { value: "#64ffda" },
+          shape: { type: "circle" },
+          opacity: { value: 0.4, random: true },
+          size: { value: 2.5, random: true },
+          links: { enable: true, color: "#64ffda", distance: 120, opacity: 0.25 },
+          move: { enable: true, speed: 0.5 }
+        },
+        background: { color: "#0A192F" }
+      });
+    });
+  </script>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-b from-[#0A192F]/90 via-[#0A192F]/25 to-transparent">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold font-mono text-accent hover:text-cyan-300 transition">
+        Akarashak Mishra
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="font-mono hover:text-accent transition"><span class="text-accent">01.</span> About</a>
+        <a href="#skills" class="font-mono hover:text-accent transition"><span class="text-accent">02.</span> Skills</a>
+        <a href="#certificates" class="font-mono hover:text-accent transition"><span class="text-accent">03.</span> Certificates</a>
+        <a href="#projects" class="font-mono hover:text-accent transition"><span class="text-accent">04.</span> Projects</a>
+        <a href="#experience" class="font-mono hover:text-accent transition"><span class="text-accent">05.</span> Experience</a>
+        <a href="#education" class="font-mono hover:text-accent transition"><span class="text-accent">06.</span> Education</a>
+        <a href="#resume" class="font-mono hover:text-accent transition"><span class="text-accent">07.</span> Resume</a>
+        <a href="#contact" class="font-mono hover:text-accent transition"><span class="text-accent">08.</span> Contact</a>
+      </div>
+
+      <!-- HEADER SOCIAL ICONS -->
+      <div class="header-icons hidden md:flex gap-4 ml-8">
+        <a href="https://github.com/Akarshak51" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:scale-110 transition">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.477 2 2 6.485 2 12c0 4.418 2.865 8.167 6.839 9.489.5.091.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.37-1.343-3.37-1.343-.454-1.159-1.11-1.467-1.11-1.467-.908-.626.069-.613.069-.613 1.004.07 1.532 1.033 1.532 1.033.892 1.527 2.341 1.087 2.91.832.091-.647.349-1.087.635-1.338C8.083 16.485 5.75 15.627 5.75 11.793c0-1.091.389-1.984 1.029-2.683-.103-.254-.447-1.274.098-2.656 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.748-1.025 2.748-1.025.546 1.382.202 2.402.099 2.656.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.688-4.566 4.936.359.308.678.918.678 1.85 0 1.335-.012 2.415-.012 2.744 0 .267.18.577.688.48C19.137 20.163 22 16.417 22 12c0-5.515-4.477-10-10-10z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/akarashak-mishra-5a0013250" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="hover:scale-110 transition">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5v-10h3v10zm-1.5-11.249c-.966 0-1.75-.784-1.75-1.75S5.534 4.25 6.5 4.25 8.25 5.034 8.25 6s-.784 1.751-1.75 1.751zM20 19h-3v-5.604c0-1.338-.027-3.065-1.867-3.065-1.868 0-2.154 1.459-2.154 2.965V19h-3v-10h2.883v1.367h.042c.401-.76 1.379-1.563 2.838-1.563 3.036 0 3.6 2.017 3.6 4.645V19z"/>
+          </svg>
+        </a>
+        <a href="https://www.codechef.com/users/clear_mood_66" target="_blank" rel="noopener noreferrer" aria-label="CodeChef Profile" class="hover:scale-110 transition">
+          <svg viewBox="0 0 24 24">
+            <g>
+              <rect x="4" y="2" width="16" height="20" rx="2" fill="#795548" />
+              <circle cx="12" cy="7" r="2" fill="#fff" />
+              <text x="7" y="19" font-size="7" fill="#fff" font-family="Space Mono" font-weight="bold">CC</text>
+            </g>
+          </svg>
+        </a>
+        <a href="https://leetcode.com/u/Akarshak51/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile" class="hover:scale-110 transition">
+          <svg viewBox="0 0 50 50">
+            <path d="M42,7L15,34c-2.2,2.2-2.2,5.8,0,8l7,7c2.2,2.2,5.8,2.2,8,0l27-27" fill="none" stroke="#FFA116" stroke-width="5" />
+            <circle cx="15" cy="34" r="3" fill="#0A192F" />
+            <circle cx="42" cy="7" r="3" fill="#FFA116" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Open navigation menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-40 bg-[#0A192F]/90 backdrop-blur-lg">
+    <div class="flex justify-end p-6">
+      <button id="close-menu-button" class="text-white" aria-label="Close navigation menu"><i data-lucide="x"></i></button>
+    </div>
+    <div class="flex flex-col items-center justify-center h-full space-y-8 font-mono text-xl text-white">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#certificates" class="mobile-nav-link">Certificates</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+      <a href="#education" class="mobile-nav-link">Education</a>
+      <a href="#resume" class="mobile-nav-link">Resume</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container mx-auto px-6 relative z-10 pt-28">
+    <!-- HOME -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-start pt-16">
+      <div class="max-w-4xl glass-card p-10 mt-6">
+        <h1 class="text-lg font-mono text-accent mb-3">Hi, my name is</h1>
+        <h2 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-2">Akarashak Mishra.</h2>
+        <h3 class="text-4xl md:text-6xl font-bold text-slate mb-4">
+          <span id="typing-effect"></span>
+        </h3>
+        <p class="font-mono text-sm text-accent mb-6">
+          AI Systems Engineer • Full Stack Developer • Embedded Systems Enthusiast
+        </p>
+        <p class="max-w-xl text-lg text-slate mb-6">
+          I'm an <span class="text-accent font-semibold">Electronics Engineering</span> student specializing in innovative hardware/software.
+          I build AI-powered systems, automation tools, and full-stack applications that solve real problems.
+        </p>
+        <p class="font-mono text-sm text-accent mb-12">
+          Python • FastAPI • React • PostgreSQL • Arduino • YOLO • Node.js
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="mailto:aveshmishra51@gmail.com" class="glow-button font-bold text-lg py-3 px-8 rounded-lg hover:scale-105 inline-block">
+            Get In Touch
+          </a>
+          <a href="assets/Akarashak_Mishra_AI_FullStack_Resume.pdf" download class="glow-button font-bold text-lg py-3 px-8 rounded-lg hover:scale-105 inline-block">
+            📄 Download Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT 01 -->
+    <section id="about" class="py-24">
+      <div class="glass-card p-10 max-w-4xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-12">
+          <span class="text-accent font-mono mr-4">01.</span> About Me
+        </h2>
+        <div class="flex flex-col md:flex-row items-start gap-10">
+          <div class="w-full md:w-3/5 space-y-4 text-slate text-lg">
+            <p>
+              Hello! I'm Akarashak, a third-year B.Tech student at IERT, Prayagraj. I enjoy working where hardware meets software:
+              embedded systems, AI models, and full-stack products.
+            </p>
+            <p>
+              I love building things end-to-end: from sensor data acquisition to backend APIs and intuitive frontends.
+              My journey so far has been circuits ➔ code ➔ AI, and I'm constantly experimenting with new ideas.
+            </p>
+            <p>Here are a few technologies I've been working with recently:</p>
+            <ul class="grid grid-cols-2 gap-2 text-sm text-slate list-inside mt-3 font-mono">
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Automation</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>AI</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>C++ (DSA)</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>JavaScript (ES6+)</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Python &amp; AI/ML</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Node.js &amp; Express</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Arduino &amp; IoT</li>
+              <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>PostgreSQL</li>
+            </ul>
+          </div>
+          <div class="w-full md:w-2/5 mx-auto flex justify-center items-center">
+            <div class="group relative">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <img src="assets/avesh3.jpg" alt="Portrait of Akarashak Mishra" loading="lazy"
+                   class="relative rounded-2xl shadow-lg" width="250" height="250"
+                   style="transform:perspective(500px) rotateY(12deg); box-shadow:0 8px 40px #64ffda22;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS 02 -->
+    <section id="skills" class="py-24">
+      <div class="glass-card p-10 max-w-4xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-12">
+          <span class="text-accent font-mono mr-4">02.</span> My Tech Stack
+        </h2>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 text-center">
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="assets/download.jpeg" alt="AI" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">AI</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="assets/images.png" alt="ML" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">ML</p>
+          </div>
+          <!-- external icons unchanged -->
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">C++</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">Python</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">JavaScript</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">HTML5</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">CSS3</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://www.servermania.com/kb/images/f_webp,q_auto:best/v1696344691/kb/Featured-1_34261013a2/Featured-1_34261013a2.png?_i=AA" alt="PostgreSQL" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">PostgreSQL</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">Node.js</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://static.cdnlogo.com/logos/r/85/react.svg" alt="React.js" class="h-16 w-16 invert" loading="lazy" />
+            <p class="font-mono text-sm">React.js</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg" alt="Arduino" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">Arduino</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">Git</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" class="h-16 w-16 invert" loading="lazy" />
+            <p class="font-mono text-sm">GitHub</p>
+          </div>
+          <div class="tech-logo flex flex-col items-center gap-2 hover:text-accent">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" class="h-16 w-16" loading="lazy" />
+            <p class="font-mono text-sm">VS Code</p>
+          </div>
+        </div>
+
+        <!-- Deployment & DevOps -->
+        <div class="mt-10">
+          <h3 class="text-xl font-bold text-white mb-4">Deployment &amp; DevOps</h3>
+          <ul class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-slate list-inside font-mono">
+            <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Vercel</li>
+            <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>GitHub Actions</li>
+            <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>CI/CD Pipelines</li>
+            <li class="flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-accent"></i>Docker (Basics)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES 03 -->
+    <section id="certificates" class="py-24">
+      <div class="glass-card p-10 max-w-5xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-12">
+          <span class="text-accent font-mono mr-4">03.</span> My Certificates
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="glass-card p-6 flex flex-col items-center hover:scale-105 transition-transform min-w-[220px]">
+            <img src="assets/7.jpg" alt="Quiz Certificate - Unstop"
+                 class="rounded-lg shadow-lg mb-4 w-full max-w-xs h-60 object-contain bg-white p-2" loading="lazy" />
+            <h3 class="text-accent font-mono text-lg mb-1 text-center">Quiz</h3>
+            <p class="text-xs text-slate text-center">Issued by: Unstop</p>
+          </div>
+
+          <div class="glass-card p-6 flex flex-col items-center hover:scale-105 transition-transform min-w-[220px]">
+            <img src="assets/92fc3244-1949-4a5a-b56a-729d4cc02455.jpg" alt="Quiz Certificate - Codespark"
+                 class="rounded-lg shadow-lg mb-4 w-full max-w-xs h-60 object-contain bg-white p-2" loading="lazy" />
+            <h3 class="text-accent font-mono text-lg mb-1 text-center">Quiz</h3>
+            <p class="text-xs text-slate text-center">Issued by: Codespark</p>
+          </div>
+
+          <div class="glass-card p-6 flex flex-col items-center hover:scale-105 transition-transform min-w-[220px]">
+            <img src="assets/h2.png" alt="Hackathon Certificate - Amity University"
+                 class="rounded-lg shadow-lg mb-4 w-full max-w-xs h-60 object-contain bg-white p-2" loading="lazy" />
+            <h3 class="text-accent font-mono text-lg mb-1 text-center">Hackathon</h3>
+            <p class="text-xs text-slate text-center">Issued by: Amity University</p>
+          </div>
+
+          <div class="glass-card p-6 flex flex-col items-center hover:scale-105 transition-transform min-w-[220px]">
+            <img src="assets/Screenshot 2026-02-20 154259.png"
+                 class="rounded-lg shadow-lg mb-4 w-full max-w-xs h-60 object-contain bg-white p-2" loading="lazy" />
+            <h3 class="text-accent font-mono text-lg mb-1 text-center">Quiz</h3>
+            <p class="text-xs text-slate text-center">Issued by: Internshala</p>
+          </div>
+
+          <div class="glass-card p-6 flex flex-col items-center hover:scale-105 transition-transform min-w-[220px]">
+            <img src="assets/Screenshot 2026-02-20 154335.png"
+                 class="rounded-lg shadow-lg mb-4 w-full max-w-xs h-60 object-contain bg-white p-2" loading="lazy" />
+            <h3 class="text-accent font-mono text-lg mb-1 text-center">Quiz</h3>
+            <p class="text-xs text-slate text-center">Issued by: Internshala</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS 04 -->
+    <section id="projects" class="py-24">
+      <div class="glass-card p-10 max-w-5xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-12">
+          <span class="text-accent font-mono mr-4">04.</span> Things I've Built
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Zerodha Project -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+                <div class="flex gap-4">
+                  <a href="https://github.com/Akarashak51/Zerodha" target="_blank" rel="noopener noreferrer" aria-label="Zerodha Automation Platform GitHub" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                Zerodha Automation Platform
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                Built an AI-powered trading automation system using FastAPI and React, reducing manual portfolio analysis time by ~40%
+                and integrating an AI chatbot to surface real-time market insights for faster decisions.
+              </p>
+            </div>
+            <img src="assets/Akarashak_Mishra_Hired_Certificate (1).jpg" alt="Zerodha Automation Project" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>Python</span><span>FastAPI</span><span>React</span><span>JavaScript</span><span>AI</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Personal AI Agent -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+                <div class="flex gap-4">
+                  <a href="https://github.com/Akarshak51/personal-ai-agent"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label="Personal AI Agent GitHub"
+                     class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                Personal AI Agent
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                A fully functional personal AI agent with minimal restrictions, designed to assist with various tasks and provide intelligent, context-aware responses.
+                Features advanced natural language processing, task automation, multi‑modal support, a persistent memory system, and extensible, modular architecture for adding new tools and behaviors.
+              </p>
+            </div>
+            <img src="assets/Screenshot 2026-02-20 174754.png" alt="Personal AI Agent" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>AI Agent</span>
+                <span>NLP</span>
+                <span>Automation</span>
+                <span>APIs</span>
+                <span>Memory</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- YOLO Voice Object Detection -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+                <div class="flex gap-4">
+                  <a href="https://github.com/Akarashak51/YOLO-Object-Detection-Voice" target="_blank" rel="noopener noreferrer" aria-label="YOLO Voice Assistant GitHub" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                  </a>
+                  <a href="https://yolo-object-detection-voice.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="YOLO Voice Assistant Live Demo" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="external-link" class="w-6 h-6"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                YOLO Object Detection Voice Assistant
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                Developed a voice-enabled smart vision system using FastAPI, YOLO-based object detection, and pyttsx3.
+                Processes live frames in real time and narrates detected objects, improving environment awareness for visually impaired users.
+              </p>
+            </div>
+            <img src="assets/smartcity.jpg" alt="YOLO Object Detection Voice Assistant" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>Python</span><span>FastAPI</span><span>YOLO</span><span>pyttsx3</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Automated Fire Fighting Robot -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                Automated Fire Fighting Robot
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                Designed an autonomous Arduino-based robot that detects fire through flame sensors and
+                automatically triggers an extinguishing mechanism, demonstrating reliable sensor integration and real-time control.
+              </p>
+            </div>
+            <img src="assets/image fire.jpg" alt="Automated Fire Fighting Robot" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>Arduino</span><span>C++</span><span>Flame Sensors</span><span>IoT</span><span>Servo</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- EEG Fatigue Detection System -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+                <div class="flex gap-4">
+                  <a href="https://github.com/Akarashak51/EEG-Fatigue-Detection-System" target="_blank" rel="noopener noreferrer" aria-label="EEG Fatigue Detection GitHub" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                EEG Fatigue Detection System
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                Built an EEG-based fatigue detection pipeline that processes brainwave signals and applies ML models
+                to classify fatigue levels, focusing on feature extraction, signal processing, and experimental validation.
+              </p>
+            </div>
+            <img src="assets/Screenshot 2025-11-12 154622.png" alt="EEG Fatigue Detection System" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>Python</span><span>Signal Processing</span><span>Machine Learning</span><span>EEG</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Problem Finder App -->
+          <article class="project-card rounded-md shadow-lg overflow-hidden flex flex-col glass-card">
+            <div class="p-6 flex-grow">
+              <div class="flex justify-between items-center mb-4">
+                <i data-lucide="folder" class="text-accent h-10 w-10"></i>
+                <div class="flex gap-4">
+                  <a href="https://github.com/Akarashak51/problem-finder-app" target="_blank" rel="noopener noreferrer" aria-label="Problem Finder App GitHub" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                  </a>
+                  <a href="https://problem-finder-app.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Problem Finder App Live Demo" class="text-slate hover:text-accent transition-colors">
+                    <i data-lucide="external-link" class="w-6 h-6"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-light-slate hover:text-accent mb-2">
+                Problem Finder App
+              </h3>
+              <p class="text-slate text-sm mb-4">
+                Web application that helps users discover and track coding problems across platforms,
+                with filters and search to streamline daily problem-solving workflows.
+              </p>
+            </div>
+            <img src="assets/Screenshot 2026-02-20 160330.png" alt="Problem Finder App" class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 bg-[#0e1f3a]">
+              <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-slate">
+                <span>JavaScript</span><span>React</span><span>Vercel</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE 05 -->
+    <section id="experience" class="py-24">
+      <div class="glass-card p-10 max-w-4xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-8">
+          <span class="text-accent font-mono mr-4">05.</span> Experience
+        </h2>
+        <div class="space-y-6 text-slate text-sm md:text-base">
+
+          <!-- Campus Ambassador -->
+          <div>
+            <h3 class="font-bold text-white">Campus Ambassador – IIT Delhi</h3>
+            <p class="font-mono text-xs text-accent mb-1">Aug 2025 – Oct 2025 • Remote / On‑campus</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Increased event participation across 3+ departments through structured campus outreach and promotions.</li>
+              <li>Coordinated with a 5-member organizing team to manage communication, scheduling, and logistics.</li>
+              <li>Managed registration workflow and updates for 100+ student participants during the campaign.</li>
+            </ul>
+          </div>
+
+          <!-- Content Writing Internship -->
+          <div>
+            <h3 class="font-bold text-white">Content Writing Intern</h3>
+            <p class="font-mono text-xs text-accent mb-1">2‑Week Remote Internship</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Wrote research‑based content on technical and educational topics for online readers.</li>
+              <li>Focused on hooks, storytelling structure, and readability to improve engagement and retention.</li>
+              <li>Delivered high-quality content on tight deadlines while following editorial guidelines.</li>
+            </ul>
+          </div>
+
+          <!-- Fundraising Internship -->
+          <div>
+            <h3 class="font-bold text-white">Fundraising Intern</h3>
+            <p class="font-mono text-xs text-accent mb-1">1‑Week Remote Internship</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Supported outreach campaigns to increase awareness and participation in fundraising initiatives.</li>
+              <li>Drafted concise communication for potential contributors across digital channels.</li>
+              <li>Assisted in tracking responses and maintaining basic campaign records during a short, intensive drive.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION 06 -->
+    <section id="education" class="py-24">
+      <div class="glass-card p-10 max-w-3xl mx-auto">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center mb-6">
+          <span class="text-accent font-mono mr-4">06.</span> Education
+        </h2>
+        <div class="text-slate text-sm md:text-base">
+          <h3 class="font-bold text-white">B.Tech in Electronics Engineering</h3>
+          <p class="font-mono text-xs text-accent mb-1">Institute of Engineering and Rural Technology (IERT), Prayagraj</p>
+          <p>2023 – 2027 (Expected)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME 07 -->
+    <section id="resume" class="py-24">
+      <div class="glass-card p-10 max-w-3xl mx-auto text-center">
+        <h2 class="section-heading text-3xl font-bold text-white flex items-center justify-center mb-6">
+          <span class="text-accent font-mono mr-4">07.</span> My Resume
+        </h2>
+        <p class="text-slate mb-6">
+          Download my latest resume for details on experience, projects, and skills.
+        </p>
+        <a href="assets/Akarashak_Mishra_AI_FullStack_Resume.pdf" download class="glow-button font-bold text-lg py-4 px-8 rounded-lg hover:scale-105 inline-block">
+          📄 Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT 08 -->
+    <section id="contact" class="py-24 text-center">
+      <div class="glass-card max-w-xl mx-auto p-10">
+        <p class="text-accent font-mono mb-2">08. What's Next?</p>
+        <h2 class="text-5xl font-bold text-white mb-4">Get In Touch</h2>
+        <p class="max-w-xl mx-auto text-slate mb-12">
+          I'm actively seeking roles and projects in Automation with AI, full stack development, and embedded systems.
+          Whether you have an opportunity, collaboration, or just want to connect, my inbox is always open.
+        </p>
+        <a href="mailto:aveshmishra51@gmail.com" class="glow-button font-bold text-lg py-4 px-8 rounded-lg hover:scale-105">
+          Say Hello
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container mx-auto px-6 py-8">
+    <div class="flex flex-col items-center justify-center text-center text-slate">
+      <div class="flex items-center gap-6 mb-4">
+        <a href="https://github.com/Akarshak51" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="hover:text-accent transition">
+          <i data-lucide="github" class="w-6 h-6"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/akarashak-mishra-5a0013250" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="hover:text-accent transition">
+          <i data-lucide="linkedin" class="w-6 h-6"></i>
+        </a>
+        <a href="https://www.codechef.com/users/clear_mood_66" target="_blank" rel="noopener noreferrer" aria-label="CodeChef Profile" class="hover:scale-110 transition">
+          <svg viewBox="0 0 24 24" width="24">
+            <g>
+              <rect x="4" y="2" width="16" height="20" rx="2" fill="#795548" />
+              <circle cx="12" cy="7" r="2" fill="#fff" />
+              <text x="7" y="19" font-size="7" fill="#fff" font-family="Space Mono" font-weight="bold">CC</text>
+            </g>
+          </svg>
+        </a>
+        <a href="https://leetcode.com/u/Akarshak51/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile" class="hover:scale-110 transition">
+          <svg width="24" viewBox="0 0 50 50">
+            <path d="M42,7L15,34c-2.2,2.2-2.2,5.8,0,8l7,7c2.2,2.2,5.8,2.2,8,0l27-27" fill="none" stroke="#FFA116" stroke-width="5" />
+            <circle cx="15" cy="34" r="3" fill="#0A192F" />
+            <circle cx="42" cy="7" r="3" fill="#FFA116" />
+          </svg>
+        </a>
+      </div>
+      <p class="text-xs font-mono">&copy; 2025 Designed &amp; Built by Akarashak Mishra</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    lucide.createIcons();
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+    closeMenuButton.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    mobileNavLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // Sticky Header shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+    });
+
+    // Typing Effect
+    document.addEventListener('DOMContentLoaded', function () {
+      new Typed('#typing-effect', {
+        strings: ['I Build for the Web.', 'I Engineer Solutions.', 'I Love to Innovate.'],
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 1500,
+        startDelay: 500,
+        loop: true
+      });
+    });
+  </script>
+</body>
+</html>
