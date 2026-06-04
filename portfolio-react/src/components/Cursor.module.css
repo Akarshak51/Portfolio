@@ -1,0 +1,45 @@
+.dot {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--g);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.ring {
+  position: fixed;
+  z-index: 9997;
+  pointer-events: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124, 92, 252, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.ring.hover {
+  width: 56px;
+  height: 56px;
+  border-color: var(--p);
+  background: rgba(255, 60, 172, 0.08);
+}
+
+.spark {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9990;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: spark 0.7s ease forwards;
+}
+
+@keyframes spark {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
+}

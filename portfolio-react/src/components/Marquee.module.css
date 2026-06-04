@@ -1,0 +1,27 @@
+.wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(0,0,0,.25);
+  padding: 0;
+  display: flex; flex-direction: column; gap: 0;
+}
+
+.track {
+  display: flex; gap: 2.2rem; align-items: center;
+  width: max-content; padding: 13px 0;
+  animation: marquee 40s linear infinite;
+}
+.reverse { animation-direction: reverse; animation-duration: 35s; border-top: 1px solid rgba(255,255,255,.03); }
+
+.item {
+  font-family: "Syne", sans-serif; font-size: .74rem;
+  font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  white-space: nowrap; opacity: .75;
+  transition: opacity .2s;
+}
+.item:hover { opacity: 1; }
+
+.dot { color: rgba(255,255,255,.2); font-size: .75rem; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }

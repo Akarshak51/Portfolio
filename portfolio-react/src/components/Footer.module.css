@@ -1,0 +1,34 @@
+.footer {
+  background: linear-gradient(180deg, var(--contact-bg2) 0%, var(--bg) 100%);
+  padding: 2.5rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+  position: relative;
+}
+.footer::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--v), var(--p), var(--g), transparent);
+}
+
+.row {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.2rem;
+}
+
+.brand {
+  font-family: "Syne", sans-serif; font-weight: 800; font-size: 1.05rem;
+  color: var(--paper); display: flex; align-items: center; gap: 8px;
+}
+.brandDot { width: 8px; height: 8px; border-radius: 50%; background: var(--g); animation: pulse 2s ease-out infinite; }
+@keyframes pulse { to { transform: scale(2.5); opacity: 0; } }
+
+.right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.7rem; }
+
+.links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.links a {
+  color: var(--muted); font-size: .84rem;
+  display: flex; align-items: center; gap: 5px;
+  transition: .2s; text-decoration: none;
+}
+.links a:hover { color: var(--g); transform: translateY(-2px); }
+
+.copy { color: var(--muted); font-size: .8rem; }

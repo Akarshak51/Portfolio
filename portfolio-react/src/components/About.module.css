@@ -1,0 +1,98 @@
+.section {
+  padding: 7rem 0 5rem;
+  background: linear-gradient(150deg, var(--about-bg1) 0%, var(--about-bg2) 50%, #80301e 100%);
+  position: relative;
+}
+.section::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 0% 50%,  rgba(34,211,238,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 20%, rgba(163,230,53,.14) 0%, transparent 50%);
+}
+
+.inner { position: relative; z-index: 1; }
+
+.label { color: var(--c); font-family: "JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; margin-bottom:.4rem; }
+.label::before { content:"// "; opacity:.35; }
+
+.h2 {
+  font-family:"Syne",sans-serif; font-weight:800;
+  font-size:clamp(2rem,4vw,3.2rem); line-height:1.08; color:var(--paper);
+  margin-bottom:2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* left bio card */
+.bioCard {
+  background: var(--glass); border: 1px solid rgba(6,182,212,.14);
+  border-radius: 22px; padding: 2rem; transition: .3s; position: relative; overflow: hidden;
+}
+.bioCard::after {
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(circle at 20% 80%, rgba(6,182,212,.1),transparent 55%);
+  opacity:0; transition:.4s;
+}
+.bioCard:hover { border-color:rgba(6,182,212,.35); transform:translateY(-5px); box-shadow:0 24px 60px rgba(6,182,212,.1); }
+.bioCard:hover::after { opacity:1; }
+
+.bioCard h3 {
+  font-family:"Syne",sans-serif; font-size:1.25rem; font-weight:700;
+  color:var(--paper); margin-bottom:1rem;
+}
+.bioCard p { color:var(--muted); font-size:.97rem; line-height:1.75; margin-bottom:.9rem; }
+.bioCard p strong { color:var(--c); font-weight:600; }
+
+.bullets { list-style:none; padding:0; margin-top:1rem; display:grid; gap:.65rem; }
+.bullets li {
+  color:var(--muted); font-size:.94rem;
+  display:flex; align-items:flex-start; gap:10px;
+}
+.bullets li::before {
+  content:""; width:7px; height:7px; border-radius:50%; background:var(--c);
+  flex-shrink:0; margin-top:.52em;
+}
+
+/* right side: facts + education */
+.rightCol { display:flex; flex-direction:column; gap:1.2rem; }
+
+.facts { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+
+.fact {
+  background:var(--glass); border:1px solid rgba(255,255,255,.06);
+  border-radius:16px; padding:1.25rem 1.1rem; transition:.25s; text-align:center;
+}
+.fact:nth-child(1) { border-color:rgba(6,182,212,.15); }
+.fact:nth-child(2) { border-color:rgba(124,58,237,.15); }
+.fact:nth-child(3) { border-color:rgba(163,230,53,.15); }
+.fact:nth-child(4) { border-color:rgba(249,115,22,.15); }
+.fact:hover { transform:scale(1.05); }
+
+.factNum {
+  font-family:"Syne",sans-serif; font-size:2.2rem; font-weight:800;
+  background:linear-gradient(120deg,var(--c),var(--v));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.fact p { color:var(--muted); font-size:.77rem; margin-top:4px; line-height:1.4; }
+
+.eduCard {
+  background:var(--glass); border:1px solid rgba(6,182,212,.14);
+  border-radius:18px; padding:1.4rem; display:flex; gap:1.1rem; align-items:flex-start;
+}
+.eduIcon {
+  width:44px; height:44px; border-radius:12px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--c),var(--v));
+  display:grid; place-items:center; font-size:1.2rem;
+}
+.eduInfo h4 { font-family:"Syne",sans-serif; font-size:1rem; font-weight:700; color:var(--paper); }
+.eduInfo p { color:var(--muted); font-size:.85rem; margin-top:3px; }
+.eduInfo span { font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--c); }
+
+@media (max-width:900px) {
+  .grid { grid-template-columns:1fr; }
+  .facts { grid-template-columns:repeat(2,1fr); }
+}
