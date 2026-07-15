@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Akarashak Mishra",
   shortName: "Akarashak",
   taglines: [
-    "AI · Full Stack · Embedded",
+    "AI · Full Stack · Software",
     "Building things that matter.",
     "LangChain + FastAPI + Arduino",
     "Open to work & collaborate.",
@@ -48,15 +48,15 @@ export const skills = [
       { label: "HTML / CSS", pct: 88 },
     ],
   },
-  {
-    icon: "🔧",
-    title: "Embedded & Hardware",
-    accent: "orange",
-    tags: ["Arduino", "C++", "IoT", "Sensors", "EEG", "Serial", "OpenCV"],
+    {
+    icon: "🌐",
+    title: "Software Development",
+    accent: " cyan",
+    tags: ["React", "SQL", "Node.js", "CS Fundamental", "REST APIs", "Firebase", "Tailwind"],
     bars: [
-      { label: "Arduino / C++", pct: 78 },
-      { label: "Signal Processing", pct: 70 },
-      { label: "IoT Integration", pct: 72 },
+      { label: "React / JS", pct: 82 },
+      { label: "Node / REST", pct: 75 },
+      { label: "SQL / CS Fundamental", pct: 88 },
     ],
   },
 ];
@@ -120,13 +120,13 @@ export const projects = [
   },
   {
     id: 8,
-    title: "EEG Fatigue Detection",
-    desc: "EEG signal pipeline with ML classification for driver fatigue detection. Feature extraction with real-world brain signal validation.",
+    title: "Tasker",
+    desc: "A task management web app with a clean UI, allowing users to create, edit, and track tasks efficiently and the management with AI. Built with React and deployed on Firebase.",
     image: "/assets/Screenshot 2025-11-12 154622.png",
-    tags: ["EEG", "ML", "Python", "Signals"],
+    tags: ["AI", "Node.js", "React", "Firebase" , "Google Cloud"],
     accent: "pink",
-    github: "https://github.com/Akarshak51/EEG-Fatigue-Detection-System",
-    live: null,
+    github: "https://github.com/Akarshak51/Tasker.git",
+    live: "https://lastminue-ai.web.app",
     wide: false,
   },
 ];
@@ -135,6 +135,17 @@ export const experience = [
   {
     role: "Full Stack Developer Intern — Enginow",
     period: "May 2026 - Aug 2026 · Remote Internship",
+    badge: "Full Stack",
+    points: [
+      "Built and maintained full-stack web features using React, Node.js and REST APIs.",
+      "Collaborated with the product team to deliver responsive, user-facing interfaces.",
+      "Integrated backend APIs with frontend components improving data flow efficiency.",
+      "Worked on real-world codebase following professional development practices.",
+    ],
+  },
+  {
+    role: "Full Stack Developer Intern — Nayoda",
+    period: "June 2026 - July 2026 · Remote Internship",
     badge: "Full Stack",
     points: [
       "Built and maintained full-stack web features using React, Node.js and REST APIs.",
